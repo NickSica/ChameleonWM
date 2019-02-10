@@ -1,0 +1,161 @@
+Build started at 2019-02-10T17:54:51.385043
+Main binary: /usr/bin/python
+Python system: Linux
+The Meson build system
+Version: 0.49.2
+Source dir: /home/nick/windowsmanager
+Build dir: /home/nick/windowsmanager/build
+Build type: native build
+Project name: chameleonwm
+Project version: 0.0.1
+Sanity testing C compiler: cc
+Is cross compiler: False.
+Sanity check compiler command line: cc /home/nick/windowsmanager/build/meson-private/sanitycheckc.c -o /home/nick/windowsmanager/build/meson-private/sanitycheckc.exe
+Sanity check compile stdout:
+
+-----
+Sanity check compile stderr:
+
+-----
+Running test binary command: /home/nick/windowsmanager/build/meson-private/sanitycheckc.exe
+Native C compiler: cc (gcc 8.2.1 "cc (GCC) 8.2.1 20181127")
+Sanity testing C++ compiler: c++
+Is cross compiler: False.
+Sanity check compiler command line: c++ /home/nick/windowsmanager/build/meson-private/sanitycheckcpp.cc -o /home/nick/windowsmanager/build/meson-private/sanitycheckcpp.exe
+Sanity check compile stdout:
+
+-----
+Sanity check compile stderr:
+
+-----
+Running test binary command: /home/nick/windowsmanager/build/meson-private/sanitycheckcpp.exe
+Native C++ compiler: c++ (gcc 8.2.1 "c++ (GCC) 8.2.1 20181127")
+Build machine cpu family: x86_64
+Build machine cpu: x86_64
+Found pkg-config: /usr/sbin/pkg-config (1.6.0)
+Determining dependency 'wlroots' with pkg-config executable '/usr/sbin/pkg-config'
+Called `/usr/sbin/pkg-config --modversion wlroots` -> 0
+0.2.0
+Called `/usr/sbin/pkg-config --cflags wlroots` -> 0
+-I/usr/include/libdrm -I/usr/include/pixman-1
+Called `/usr/sbin/pkg-config wlroots --libs` -> 0
+-L/usr/lib -lwlroots
+Called `/usr/sbin/pkg-config wlroots --libs` -> 0
+-lwlroots
+Running compile:
+Working directory:  /tmp/tmpx63r_v69
+Command line:  c++ /tmp/tmpx63r_v69/testfile.cpp -pipe -D_FILE_OFFSET_BITS=64 -o /tmp/tmpx63r_v69/output.exe -O0 -fpermissive 
+
+Code:
+ #include<stdio.h>
+        
+        int main(int argc, char **argv) {
+            printf("%ld\n", (long)(sizeof(void *)));
+            return 0;
+        };
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Program stdout:
+
+8
+
+Program stderr:
+
+
+Running compile:
+Working directory:  /tmp/tmpaq7hsa13
+Command line:  c++ /tmp/tmpaq7hsa13/testfile.cpp -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmpaq7hsa13/output.obj -O0 -fpermissive --print-search-dirs 
+
+Code:
+ 
+Compiler stdout:
+ install: /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/
+programs: =/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/:/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/:/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../x86_64-pc-linux-gnu/bin/x86_64-pc-linux-gnu/8.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../x86_64-pc-linux-gnu/bin/
+libraries: =/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../x86_64-pc-linux-gnu/lib/x86_64-pc-linux-gnu/8.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../x86_64-pc-linux-gnu/lib/../lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../x86_64-pc-linux-gnu/8.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../lib/:/lib/x86_64-pc-linux-gnu/8.2.1/:/lib/../lib/:/usr/lib/x86_64-pc-linux-gnu/8.2.1/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../x86_64-pc-linux-gnu/lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../:/lib/:/usr/lib/
+
+Compiler stderr:
+ 
+Dependency wlroots found: YES 0.2.0
+Determining dependency 'wayland-server' with pkg-config executable '/usr/sbin/pkg-config'
+Called `/usr/sbin/pkg-config --modversion wayland-server` -> 0
+1.16.0
+Called `/usr/sbin/pkg-config --cflags wayland-server` -> 0
+
+Called `/usr/sbin/pkg-config wayland-server --libs` -> 0
+-L/usr/lib -lwayland-server
+Called `/usr/sbin/pkg-config wayland-server --libs` -> 0
+-lwayland-server
+Dependency wayland-server found: YES 1.16.0
+Determining dependency 'wayland-client' with pkg-config executable '/usr/sbin/pkg-config'
+Called `/usr/sbin/pkg-config --modversion wayland-client` -> 0
+1.16.0
+Called `/usr/sbin/pkg-config --cflags wayland-client` -> 0
+
+Called `/usr/sbin/pkg-config wayland-client --libs` -> 0
+-L/usr/lib -lwayland-client
+Called `/usr/sbin/pkg-config wayland-client --libs` -> 0
+-lwayland-client
+Dependency wayland-client found: YES 1.16.0
+Determining dependency 'wayland-protocols' with pkg-config executable '/usr/sbin/pkg-config'
+Called `/usr/sbin/pkg-config --modversion wayland-protocols` -> 0
+1.17
+Called `/usr/sbin/pkg-config --cflags wayland-protocols` -> 0
+
+Called `/usr/sbin/pkg-config wayland-protocols --libs` -> 0
+
+Called `/usr/sbin/pkg-config wayland-protocols --libs` -> 0
+
+Dependency wayland-protocols found: YES 1.17
+Determining dependency 'pixman-1' with pkg-config executable '/usr/sbin/pkg-config'
+Called `/usr/sbin/pkg-config --modversion pixman-1` -> 0
+0.36.0
+Called `/usr/sbin/pkg-config --cflags pixman-1` -> 0
+-I/usr/include/pixman-1
+Called `/usr/sbin/pkg-config pixman-1 --libs` -> 0
+-L/usr/lib -lpixman-1
+Called `/usr/sbin/pkg-config pixman-1 --libs` -> 0
+-lpixman-1
+Dependency pixman-1 found: YES 0.36.0
+Determining dependency 'xkbcommon' with pkg-config executable '/usr/sbin/pkg-config'
+Called `/usr/sbin/pkg-config --modversion xkbcommon` -> 0
+0.8.3
+Called `/usr/sbin/pkg-config --cflags xkbcommon` -> 0
+
+Called `/usr/sbin/pkg-config xkbcommon --libs` -> 0
+-L/usr/lib -lxkbcommon
+Called `/usr/sbin/pkg-config xkbcommon --libs` -> 0
+-lxkbcommon
+Dependency xkbcommon found: YES 0.8.3
+Called `/usr/sbin/pkg-config --variable=pkgdatadir wayland-protocols` -> 0
+//usr/share/wayland-protocols
+Got pkgconfig variable pkgdatadir : //usr/share/wayland-protocols
+Program wayland-scanner found: YES (/usr/sbin/wayland-scanner)
+Build targets in project: 2
+Option werror is: True [default: true]
+Found ninja-1.9.0 at /usr/sbin/ninja
+Running compile:
+Working directory:  /tmp/tmpc4dgj6dr
+Command line:  cc /tmp/tmpc4dgj6dr/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmpc4dgj6dr/output.obj -O0 --print-search-dirs 
+
+Code:
+ 
+Compiler stdout:
+ install: /usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/
+programs: =/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/:/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/:/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../x86_64-pc-linux-gnu/bin/x86_64-pc-linux-gnu/8.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../x86_64-pc-linux-gnu/bin/
+libraries: =/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../x86_64-pc-linux-gnu/lib/x86_64-pc-linux-gnu/8.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../x86_64-pc-linux-gnu/lib/../lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../x86_64-pc-linux-gnu/8.2.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../lib/:/lib/x86_64-pc-linux-gnu/8.2.1/:/lib/../lib/:/usr/lib/x86_64-pc-linux-gnu/8.2.1/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../../x86_64-pc-linux-gnu/lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/../../../:/lib/:/usr/lib/
+
+Compiler stderr:
+ 
+Running compile:
+Working directory:  /tmp/tmp4nfgg3eg
+Command line:  c++ /tmp/tmp4nfgg3eg/testfile.cpp -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmp4nfgg3eg/output.obj -std=c++17 
+
+Code:
+ int i = static_cast<int>(0);
+Compiler stdout:
+ 
+Compiler stderr:
+ 
+Compiler accepts -std=c++17: YES

@@ -1,0 +1,36 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "compilerPath": "C:/Users/xoepe/Desktop/ArchWSL/rootfs/usr/bin/clang",
+            "includePath": [
+                "/usr/include/c++/8.2.1/",
+                "/usr/include/c++/8.2.1/x86_64-pc-linux-gnu/",
+                "/usr/include/c++/8.2.1/backward/",
+                "/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include/",
+                "/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include-fixed/",
+                "/usr/local/include/",
+                "/usr/include/",
+                "${workspaceFolder}/**"
+            ],
+            "defines": [
+                "_DEBUG"
+            ],
+            "browse": {
+                "path": [
+                    "C:/Users/xoepe/Desktop/ArchWSL/rootfs/usr/include/c++/8.2.1/",
+                    "C:/Users/xoepe/Desktop/ArchWSL/rootfs/usr/include/c++/8.2.1/x86_64-pc-linux-gnu/",
+                    "C:/Users/xoepe/Desktop/ArchWSL/rootfs/usr/include/c++/8.2.1/backward/",
+                    "C:/Users/xoepe/Desktop/ArchWSL/rootfs/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include/",
+                    "C:/Users/xoepe/Desktop/ArchWSL/rootfs/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/include-fixed/",
+                    "C:/Users/xoepe/Desktop/ArchWSL/rootfs/usr/include/",
+                    "${workspaceFolder}/**"
+                ],
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": ""
+            },
+            "intelliSenseMode": "clang-x64"
+        }
+    ],
+    "version": 4
+}

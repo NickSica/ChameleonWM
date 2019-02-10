@@ -1,0 +1,8 @@
+clang
+-Wall
+-Wextra
+%cpp -std=c++2a
+-stdlib=libc++
+-I/usr/include
+-I~/windowsmanager/src
+
