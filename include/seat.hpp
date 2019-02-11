@@ -6,7 +6,14 @@ class ChamSeat
    wl_listener newInput;
    wl_listener requestCursor;
    wl_list keyboards;
-   enum cursorMode cursor_mode;
+
+   enum cursorMode
+   {
+      CURSOR_PASSTHROUGH,
+      CURSOR_MOVE,
+      CURSOR_RESIZE
+   } cursor_mode;
+   
    ChamView *grabbedView;
    double grabX, grabY;
    int grabWidth, grabHeight;
