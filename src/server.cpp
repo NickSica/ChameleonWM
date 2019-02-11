@@ -1,22 +1,21 @@
 #include "server.hpp"
+//#include "xdgshell.hpp"
 
+#include <wlr/types/wlr_xdg_shell_v6.h>
 #include <wlr/types/wlr_compositor.h>
 #include <wlr/types/wlr_linux_dmabuf_v1.h>
 #include <wlr/types/wlr_data_device.h>
+#include <wlr/types/wlr_output_layout.h>
 
 ChamServer::ChamServer()
 {
    wlDisplay = wl_display_create();
-   // static_assert(wlDisplay, "Server display not initialized.");
-   // wlEventLoop = wl_display_get_event_loop(wlDisplay);
-   // static_assert(wlEventLoop, "Server backend not initialized.");
    backend = wlr_backend_autocreate(wlDisplay, NULL);
-   // static_assert(backend, "Server backend not initialized.");
    renderer = wlr_backend_get_renderer(backend);
 
-   wlr_compositor_create(wlDisplay, renderer);
-   wlr_linux_dmabuf_v1_create(wlDisplay, renderer);
-   wlr_data_device_manager_create(wlDisplay);
+   compositor = wlr_compositor_create(wlDisplay, renderer);
+   dmabuf = wlr_linux_dmabuf_v1_create(wlDisplay, renderer);
+   dataDeviceMgr = wlr_data_device_manager_create(wlDisplay);
    outputLayout = wlr_output_layout_create();
 
    wl_list_init(&outputs);
@@ -24,29 +23,29 @@ ChamServer::ChamServer()
    wl_signal_add(&backend->events.new_output, &newOutput);
 
    wl_list_init(&views);
-   xdgShell = wlr_xdg_shell_create(wlDisplay);
+   xdgShell = wlr_xdg_shell_v6_create(wlDisplay);
    newXdgSurface.notify = newXdgSurfaceNotify;
    wl_signal_add(&xdgShell->events.new_surface, &newXdgSurface);
 
-   cursor = wlr_cursor_create();
+   cursor{};
    wlr_cursor_attach_output_layout(cursor, outputLayout);
 
    cursorMgr = wlr_xcursor_manager_create(NULL, 24);
    wlr_xcursor_manager_load(cursorMgr, 1);
 
-   cursorMotion.notify = serverCursorMotion;
+   cursorMotion.notify = cursorMotionNotify;
    wl_signal_add(&cursor->events.motion, &cursorMotion);
-   cursorMotionAbsolute.notify = serverCursorMotionAbsolute;
+   cursorMotionAbsolute.notify = cursorMotionAbsoluteNotify;
    wl_signal_add(&cursor->events.button, &cursorButton);
-   cursorAxis.notify = serverCursorAxis;
+   cursorAxis.notify = cursorAxisNotify;
    wl_signal_add(&cursor->events.axis, &cursorAxis);
 
    wl_list_init(&keyboards);
-   newInput.notify = serverNewInput;
+   newInput.notify = newInputNotify;
    wl_signal_add(&backend->events.new_input, &newInput);
 
    seat = wlr_seat_create(wlDisplay, "seat0");
-   requestCursor.notify = seatRequestCursor;
+   requestCursor.notify = requestCursorNotify;
    wl_signal_add(&seat->events.request_set_cursor, &requestCursor);
 }
 
@@ -62,6 +61,42 @@ int ChamServer::newSocket()
    setenv("WAYLAND_DISPLAY", socket, true);
 
    return 0;
+}
+
+void ChamServer::newOutputNotify(wl_listener *listener, void *data)
+{
+   ChamServer *server = wl_container_of(listener, server, new_output);
+   
+}
+
+void ChamServer::newXdgSurfaceNotify(wl_listener *listener, void *data)
+{
+   
+}
+
+void ChamServer::cursorMotionNotify(wl_listener *listener, void *data)
+{
+   
+}
+
+void ChamServer::cursorMotionAbsoluteNotify(wl_listener *listener, void *data)
+{
+
+}
+
+void ChamServer::cursorAxisNotify(wl_listener *listener, void *data)
+{
+   
+}
+
+void ChamServer::newInputNotify(wl_listener *listener, void *data)
+{
+
+}
+
+void ChamServer::requestCursorNotify(wl_listener *listener, void *data)
+{
+   
 }
 
 void ChamServer::focusView(ChamView *view, wlr_surface *surface)

@@ -9,8 +9,9 @@
 extern "C" {
 #include <wlr/backend.h>
 #include <wlr/render/wlr_renderer.h>
-#include <wlr/types/wlr_xdg_shell.h>
-#include <wlr/types/wlr_xcursor_manager.h>
+#include <wlr/types/wlr_compositor.h>
+#include <wlr/types/wlr_linux_dmabuf_v1.h>
+#include <wlr/types/wlr_xdg_shell_v6.h>
 }
 
 #undef class
@@ -19,47 +20,39 @@ extern "C" {
 #undef delete
 
 #include "view.hpp"
+#include "cursor.hpp"
 
 class ChamServer
 {
-private:
-   enum ChamCursorMode {
-      CHAM_CURSOR_PASSTHROUGH,
-      CHAM_CURSOR_MOVE,
-      CHAM_CURSOR_RESIZE,
-   };
+
 public:
    wl_display *wlDisplay;
    wlr_backend *backend;
    wlr_renderer *renderer;
+
+   wlr_compositor *compositor;
+   wlr_linux_dmabuf_v1 *dmabuf;
    
-   wlr_xdg_shell *xdgShell;
+   wlr_xdg_shell_v6 *xdgShell;
    wl_listener newXdgSurface;
    wl_list views;
 
-   wlr_cursor *cursor;
-   wlr_xcursor_manager *cursorMgr;
-   wl_listener cursorMotion;
-   wl_listener cursorMotionAbsolute;
-   wl_listener cursorButton;
-   wl_listener cursorAxis;
+   ChamCursor cursor;
 
-   wlr_seat *seat;
-   wl_listener newInput;
-   wl_listener requestCursor;
-   wl_list keyboards;
-   enum ChamCursorMode cursor_mode;
-   ChamView *grabbedView;
-   double grabX, grabY;
-   int grabWidth, grabHeight;
-   uint32_t resizeEdges;
 
+
+   wl_data_device_manager *dataDeviceMgr; 
+   
    wlr_output_layout *outputLayout;
    wl_listener newOutput;
    wl_list outputs;
 
    ChamServer();
    int newSocket();
+   static void newOutputNotify(wl_listener *listener, void *data);
+   static void newXdgSurfaceNotify(wl_listener *listener, void *data);
+   static void newInputNotify(wl_listener *listener, void *data);
+   static void requestCursorNotify(wl_listener *listener, void *data);
    static void newKeyboard(wlr_input_device *device);
    static void focusView(ChamView *view, wlr_surface *surface);
 };

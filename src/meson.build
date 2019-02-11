@@ -2,6 +2,9 @@ wm_src = files(
 	'main.cpp',
 	'keyboard.cpp',
 	'server.cpp',
+	'cursor.cpp',
+	'seat.cpp',
+	# 'xdgshell.cpp',
 )
 
 wm_deps = [
