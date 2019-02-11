@@ -1,0 +1,68 @@
+[
+  {
+    "directory": "/home/nick/ChameleonWM/build",
+    "command": "cc -Iprotocol/2ea88c7@@wl_protos@sta -Iprotocol -I../protocol -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Werror -g -Wno-unused-parameter -Wextra -DWLR_USE_UNSTABLE -fPIC  -MD -MQ 'protocol/2ea88c7@@wl_protos@sta/meson-generated_xdg-shell-protocol.c.o' -MF 'protocol/2ea88c7@@wl_protos@sta/meson-generated_xdg-shell-protocol.c.o.d' -o 'protocol/2ea88c7@@wl_protos@sta/meson-generated_xdg-shell-protocol.c.o' -c 'protocol/2ea88c7@@wl_protos@sta/xdg-shell-protocol.c'",
+    "file": "protocol/2ea88c7@@wl_protos@sta/xdg-shell-protocol.c",
+    "output": "protocol/2ea88c7@@wl_protos@sta/meson-generated_xdg-shell-protocol.c.o"
+  },
+  {
+    "directory": "/home/nick/ChameleonWM/build",
+    "command": "cc -Iprotocol/2ea88c7@@wl_protos@sta -Iprotocol -I../protocol -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Werror -g -Wno-unused-parameter -Wextra -DWLR_USE_UNSTABLE -fPIC  -MD -MQ 'protocol/2ea88c7@@wl_protos@sta/meson-generated_xdg-shell-unstable-v6-protocol.c.o' -MF 'protocol/2ea88c7@@wl_protos@sta/meson-generated_xdg-shell-unstable-v6-protocol.c.o.d' -o 'protocol/2ea88c7@@wl_protos@sta/meson-generated_xdg-shell-unstable-v6-protocol.c.o' -c 'protocol/2ea88c7@@wl_protos@sta/xdg-shell-unstable-v6-protocol.c'",
+    "file": "protocol/2ea88c7@@wl_protos@sta/xdg-shell-unstable-v6-protocol.c",
+    "output": "protocol/2ea88c7@@wl_protos@sta/meson-generated_xdg-shell-unstable-v6-protocol.c.o"
+  },
+  {
+    "directory": "/home/nick/ChameleonWM/build",
+    "command": "cc -Iprotocol/2ea88c7@@wl_protos@sta -Iprotocol -I../protocol -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Werror -g -Wno-unused-parameter -Wextra -DWLR_USE_UNSTABLE -fPIC  -MD -MQ 'protocol/2ea88c7@@wl_protos@sta/meson-generated_xdg-output-unstable-v1-protocol.c.o' -MF 'protocol/2ea88c7@@wl_protos@sta/meson-generated_xdg-output-unstable-v1-protocol.c.o.d' -o 'protocol/2ea88c7@@wl_protos@sta/meson-generated_xdg-output-unstable-v1-protocol.c.o' -c 'protocol/2ea88c7@@wl_protos@sta/xdg-output-unstable-v1-protocol.c'",
+    "file": "protocol/2ea88c7@@wl_protos@sta/xdg-output-unstable-v1-protocol.c",
+    "output": "protocol/2ea88c7@@wl_protos@sta/meson-generated_xdg-output-unstable-v1-protocol.c.o"
+  },
+  {
+    "directory": "/home/nick/ChameleonWM/build",
+    "command": "cc -Iprotocol/2ea88c7@@wl_protos@sta -Iprotocol -I../protocol -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Werror -g -Wno-unused-parameter -Wextra -DWLR_USE_UNSTABLE -fPIC  -MD -MQ 'protocol/2ea88c7@@wl_protos@sta/meson-generated_pointer-constraints-unstable-v1-protocol.c.o' -MF 'protocol/2ea88c7@@wl_protos@sta/meson-generated_pointer-constraints-unstable-v1-protocol.c.o.d' -o 'protocol/2ea88c7@@wl_protos@sta/meson-generated_pointer-constraints-unstable-v1-protocol.c.o' -c 'protocol/2ea88c7@@wl_protos@sta/pointer-constraints-unstable-v1-protocol.c'",
+    "file": "protocol/2ea88c7@@wl_protos@sta/pointer-constraints-unstable-v1-protocol.c",
+    "output": "protocol/2ea88c7@@wl_protos@sta/meson-generated_pointer-constraints-unstable-v1-protocol.c.o"
+  },
+  {
+    "directory": "/home/nick/ChameleonWM/build",
+    "command": "cc -Iprotocol/2ea88c7@@wl_protos@sta -Iprotocol -I../protocol -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Werror -g -Wno-unused-parameter -Wextra -DWLR_USE_UNSTABLE -fPIC  -MD -MQ 'protocol/2ea88c7@@wl_protos@sta/meson-generated_wlr-layer-shell-unstable-v1-protocol.c.o' -MF 'protocol/2ea88c7@@wl_protos@sta/meson-generated_wlr-layer-shell-unstable-v1-protocol.c.o.d' -o 'protocol/2ea88c7@@wl_protos@sta/meson-generated_wlr-layer-shell-unstable-v1-protocol.c.o' -c 'protocol/2ea88c7@@wl_protos@sta/wlr-layer-shell-unstable-v1-protocol.c'",
+    "file": "protocol/2ea88c7@@wl_protos@sta/wlr-layer-shell-unstable-v1-protocol.c",
+    "output": "protocol/2ea88c7@@wl_protos@sta/meson-generated_wlr-layer-shell-unstable-v1-protocol.c.o"
+  },
+  {
+    "directory": "/home/nick/ChameleonWM/build",
+    "command": "cc -Iprotocol/2ea88c7@@wl_protos@sta -Iprotocol -I../protocol -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wextra -Werror -g -Wno-unused-parameter -Wextra -DWLR_USE_UNSTABLE -fPIC  -MD -MQ 'protocol/2ea88c7@@wl_protos@sta/meson-generated_wlr-input-inhibitor-unstable-v1-protocol.c.o' -MF 'protocol/2ea88c7@@wl_protos@sta/meson-generated_wlr-input-inhibitor-unstable-v1-protocol.c.o.d' -o 'protocol/2ea88c7@@wl_protos@sta/meson-generated_wlr-input-inhibitor-unstable-v1-protocol.c.o' -c 'protocol/2ea88c7@@wl_protos@sta/wlr-input-inhibitor-unstable-v1-protocol.c'",
+    "file": "protocol/2ea88c7@@wl_protos@sta/wlr-input-inhibitor-unstable-v1-protocol.c",
+    "output": "protocol/2ea88c7@@wl_protos@sta/meson-generated_wlr-input-inhibitor-unstable-v1-protocol.c.o"
+  },
+  {
+    "directory": "/home/nick/ChameleonWM/build",
+    "command": "c++ -Isrc/25a6634@@chameleonwm@exe -Isrc -I../src -I../include -I/usr/include/libdrm -I/usr/include/pixman-1 -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -Wextra -Werror -std=c++17 -g -Wno-unused-parameter -Wextra -DWLR_USE_UNSTABLE  -MD -MQ 'src/25a6634@@chameleonwm@exe/main.cpp.o' -MF 'src/25a6634@@chameleonwm@exe/main.cpp.o.d' -o 'src/25a6634@@chameleonwm@exe/main.cpp.o' -c ../src/main.cpp",
+    "file": "../src/main.cpp",
+    "output": "src/25a6634@@chameleonwm@exe/main.cpp.o"
+  },
+  {
+    "directory": "/home/nick/ChameleonWM/build",
+    "command": "c++ -Isrc/25a6634@@chameleonwm@exe -Isrc -I../src -I../include -I/usr/include/libdrm -I/usr/include/pixman-1 -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -Wextra -Werror -std=c++17 -g -Wno-unused-parameter -Wextra -DWLR_USE_UNSTABLE  -MD -MQ 'src/25a6634@@chameleonwm@exe/keyboard.cpp.o' -MF 'src/25a6634@@chameleonwm@exe/keyboard.cpp.o.d' -o 'src/25a6634@@chameleonwm@exe/keyboard.cpp.o' -c ../src/keyboard.cpp",
+    "file": "../src/keyboard.cpp",
+    "output": "src/25a6634@@chameleonwm@exe/keyboard.cpp.o"
+  },
+  {
+    "directory": "/home/nick/ChameleonWM/build",
+    "command": "c++ -Isrc/25a6634@@chameleonwm@exe -Isrc -I../src -I../include -I/usr/include/libdrm -I/usr/include/pixman-1 -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -Wextra -Werror -std=c++17 -g -Wno-unused-parameter -Wextra -DWLR_USE_UNSTABLE  -MD -MQ 'src/25a6634@@chameleonwm@exe/server.cpp.o' -MF 'src/25a6634@@chameleonwm@exe/server.cpp.o.d' -o 'src/25a6634@@chameleonwm@exe/server.cpp.o' -c ../src/server.cpp",
+    "file": "../src/server.cpp",
+    "output": "src/25a6634@@chameleonwm@exe/server.cpp.o"
+  },
+  {
+    "directory": "/home/nick/ChameleonWM/build",
+    "command": "c++ -Isrc/25a6634@@chameleonwm@exe -Isrc -I../src -I../include -I/usr/include/libdrm -I/usr/include/pixman-1 -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -Wextra -Werror -std=c++17 -g -Wno-unused-parameter -Wextra -DWLR_USE_UNSTABLE  -MD -MQ 'src/25a6634@@chameleonwm@exe/cursor.cpp.o' -MF 'src/25a6634@@chameleonwm@exe/cursor.cpp.o.d' -o 'src/25a6634@@chameleonwm@exe/cursor.cpp.o' -c ../src/cursor.cpp",
+    "file": "../src/cursor.cpp",
+    "output": "src/25a6634@@chameleonwm@exe/cursor.cpp.o"
+  },
+  {
+    "directory": "/home/nick/ChameleonWM/build",
+    "command": "c++ -Isrc/25a6634@@chameleonwm@exe -Isrc -I../src -I../include -I/usr/include/libdrm -I/usr/include/pixman-1 -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -Wextra -Werror -std=c++17 -g -Wno-unused-parameter -Wextra -DWLR_USE_UNSTABLE  -MD -MQ 'src/25a6634@@chameleonwm@exe/seat.cpp.o' -MF 'src/25a6634@@chameleonwm@exe/seat.cpp.o.d' -o 'src/25a6634@@chameleonwm@exe/seat.cpp.o' -c ../src/seat.cpp",
+    "file": "../src/seat.cpp",
+    "output": "src/25a6634@@chameleonwm@exe/seat.cpp.o"
+  }
+]
