@@ -4,5 +4,5 @@ clang
 %cpp -std=c++2a
 -stdlib=libc++
 -I/usr/include
--I~/ChameleonWM/src
--I~/ChameleonWM/include
+-Isrc
+-Iinclude
