@@ -4,7 +4,6 @@
 #include <wlr/types/wlr_linux_dmabuf_v1.h>
 #include <wlr/types/wlr_data_device.h>
 
-
 ChamServer::ChamServer()
 {
    wlDisplay = wl_display_create();
