@@ -11,9 +11,9 @@
 
 
 /* Here so I can easily snip it- will remove later
-#define class _class
-#define namespace _namespace
-#define delete _delete
+#define class class_t
+#define namespace namespace_t
+#define delete delete_t
 #define static
 
 extern "C" {
@@ -26,19 +26,9 @@ extern "C" {
 #undef delete
 */
 
-#define class class_
-#define namespace namespace_
-#define delete delete_
-#define static
-
 extern "C" {
 #include <wlr/util/log.h>
 }
-
-#undef class
-#undef namespace
-#undef static
-#undef delete
 
 int main(int argc, char *argv[])
 {

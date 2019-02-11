@@ -1,8 +1,9 @@
+#pragma once
 #include <wayland-server.h>
                
-#define class class_
-#define namespace namespace_
-#define delete delete_
+#define class class_t
+#define namespace namespace_t
+#define delete delete_t
 #define static
 
 extern "C" {

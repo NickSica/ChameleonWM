@@ -44,11 +44,11 @@ ChamServer::ChamServer()
 
    wl_list_init(&keyboards);
    newInput.notify = serverNewInput;
-   wl_signal_add(&backend->events.new_input, newInput);
+   wl_signal_add(&backend->events.new_input, &newInput);
 
    seat = wlr_seat_create(wlDisplay, "seat0");
    requestCursor.notify = seatRequestCursor;
-   wl_signal_add(&seat->events.request_set_cursor, requestCursor);
+   wl_signal_add(&seat->events.request_set_cursor, &requestCursor);
 }
 
 int ChamServer::newSocket()
@@ -56,7 +56,7 @@ int ChamServer::newSocket()
    const char *socket = wl_display_add_socket_auto(wlDisplay);
    if (!socket)
    {
-      destroyBackend();
+      wlr_backend_destroy(backend);
       return 1;
    }
    printf("Running compositor on wayland display '%s'\n", socket);
@@ -67,7 +67,7 @@ int ChamServer::newSocket()
 
 void ChamServer::focusView(ChamView *view, wlr_surface *surface)
 {
-   if( == NULL)
+   if(view == NULL)
    {
       return;
    }
@@ -83,7 +83,7 @@ void ChamServer::focusView(ChamView *view, wlr_surface *surface)
    if(prevSurface)
    {
       wlr_xdg_surface *previous =
-	 wlr_xdg_surface_from_wlr_surface(seat->keyboard_state.focused_surface);
+	   wlr_xdg_surface_from_wlr_surface(seat->keyboard_state.focused_surface);
       wlr_xdg_toplevel_set_activated(previous, false);
    }
 
