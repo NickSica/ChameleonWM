@@ -1,4 +1,4 @@
-Build started at 2019-02-11T17:07:08.341803
+Build started at 2019-02-12T17:01:41.999402
 Main binary: /usr/bin/python
 Python system: Linux
 The Meson build system
@@ -26,8 +26,8 @@ Build targets in project: 2
 Option werror is: True [default: true]
 Found ninja-1.9.0 at /usr/bin/ninja
 Running compile:
-Working directory:  /tmp/tmpa3rwjiyn
-Command line:  cc /tmp/tmpa3rwjiyn/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmpa3rwjiyn/output.obj -O0 --print-search-dirs 
+Working directory:  /tmp/tmppbwmj9wm
+Command line:  cc /tmp/tmppbwmj9wm/testfile.c -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmppbwmj9wm/output.obj -O0 --print-search-dirs 
 
 Code:
  
@@ -39,8 +39,8 @@ libraries: =/usr/lib/gcc/x86_64-pc-linux-gnu/8.2.1/:/usr/lib/gcc/x86_64-pc-linux
 Compiler stderr:
  
 Running compile:
-Working directory:  /tmp/tmpmpl71cjx
-Command line:  c++ /tmp/tmpmpl71cjx/testfile.cpp -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmpmpl71cjx/output.obj -std=c++17 
+Working directory:  /tmp/tmp16e660pu
+Command line:  c++ /tmp/tmp16e660pu/testfile.cpp -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmp16e660pu/output.obj -std=c++17 
 
 Code:
  int i = static_cast<int>(0);
@@ -50,8 +50,8 @@ Compiler stderr:
  
 Compiler accepts -std=c++17: YES
 Running compile:
-Working directory:  /tmp/tmpievx_ipl
-Command line:  c++ /tmp/tmpievx_ipl/testfile.cpp -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmpievx_ipl/output.obj -O0 -fpermissive --print-search-dirs 
+Working directory:  /tmp/tmp_dx6l15r
+Command line:  c++ /tmp/tmp_dx6l15r/testfile.cpp -pipe -D_FILE_OFFSET_BITS=64 -c -o /tmp/tmp_dx6l15r/output.obj -O0 -fpermissive --print-search-dirs 
 
 Code:
  

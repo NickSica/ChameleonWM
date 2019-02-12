@@ -7,7 +7,7 @@ project(
     license: 'MIT',
     meson_version: '>=0.43.0',
     default_options: [
-        'cpp_std=c++17',
+	    'cpp_std=c++17',
 	    'warning_level=2',
 	    'werror=true',
 	    'buildtype=debug',

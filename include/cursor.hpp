@@ -6,8 +6,15 @@
 class ChamCursor
 {
 private:
-   wlr_cursor *cursor;
    wlr_xcursor_manager *cursorMgr;
+
+   enum enumCursorMode
+   {
+      CURSOR_PASSTHROUGH,
+      CURSOR_MOVE,
+      CURSOR_RESIZE
+   } cursorMode;
+   
    struct listeners
    {
       wl_listener cursorMotion;
@@ -19,12 +26,13 @@ private:
    wl_list link;
    wlr_input_device *device;
 
-   void cursorMotionNotify(wl_listener *listener, void *data);
-   void cursorMotionAbsoluteNotify(wl_listener *listener, void *data);
-   void cursorAxisNotify(wl_listener *listener, void *data);
-   void processCursorMotion(listeners *listeners, uint32_t time);
-
+   void processCursorMotion(wlr_event_pointer_motion *event);
+   void processCursorMove(wlr_event_pointer_motion *event);
+   void processCursorResize(wlr_event_pointer_motion *event);
+   
 public:
+   wlr_cursor *cursor;
+
    ChamCursor();
    
 };

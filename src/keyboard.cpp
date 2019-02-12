@@ -1,14 +1,13 @@
 #include "keyboard.hpp"
 
-void ChamKeyboard::keyboardHandleModifiers(wl_listener *listener, void *data)
+#include "server.hpp"
+
+static void handleModifiersNotify(wl_listener *, void *data)
 {
-   wmKeyboard *keyboard = wl_container_of(listener, keyboard, modifiers);
-   wlr_seat_set_keyboard(keyboard->server->seat, keyboard->device);
-   wlr_seat_keyboard_notify_modifiers(keyboard->server->seat,
-				      &keyboard->device->keyboard->modifiers);
+   server->keyboard.handleModifiers();
 }
 
-bool ChamKeyboard::handleKeybinding(ChamServer *server, xkb_keysym_t sym)
+bool ChamKeyboard::handleKeybinding(xkb_keysym_t sym)
 {
    switch (sym)
    {
@@ -32,20 +31,18 @@ bool ChamKeyboard::handleKeybinding(ChamServer *server, xkb_keysym_t sym)
    return true;
 }
 
-void ChamKeyboard::keyboardHandleKey(wl_listener *listener, void *data)
+void ChamKeyboard::handleKey(wl_listener *listener, void *data)
 {
-   wmKeyboard *keyboard = wl_container_of(listener, keyboard, key);
-   wmServer *server = keyboard->server;
-   wlr_event_keyboard_key *event = data;
+   wlr_event_keyboard_key *event = static_cast<wlr_event_keyboard_key *>(data);
    wlr_seat *seat = server->seat;
 
    uint32_t keycode = event->keycode + 8;
    const xkb_keysym_t *syms;
-   int nsyms = xkb_state_key_get_syms(keyboard->device->keyboard->xkb_state, keycode, &syms);
+   int nsyms = xkb_state_key_get_syms(device->keyboard->xkb_state, keycode, &syms);
 
    bool handled = false;
-   uint32_t modifiers = wlr_keyboard_get_modifiers(keyboard->device->keyboard);
-   if((modifiers & WLR_MODIFIER_ALT) && event->state == WLR_BUTTON_PRESSED)
+   uint32_t modifiers = wlr_keyboard_get_modifiers(device->keyboard);
+   if((modifiers & WLR_MODIFIER_ALT) && event->state == static_cast<wlr_key_state>(WLR_BUTTON_PRESSED))
    {
       for(int i = 0; i < nsyms; i++)
       {
@@ -58,4 +55,10 @@ void ChamKeyboard::keyboardHandleKey(wl_listener *listener, void *data)
       wlr_seat_set_keyboard(seat, keyboard->device);
       wlr_seat_keyboard_notify_key(seat, event->time_msec, event->keycode, event->state);
    }
+}
+
+void ChamKeyboard::handleModifiers()
+{
+   wlr_seat_set_keyboard(server->seat.getSeat(), device);
+   wlr_seat_keyboard_notify_modifiers(server->seat, device->keyboard->modifiers);
 }

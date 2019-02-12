@@ -13,7 +13,7 @@
 /* Here so I can easily snip it- will remove later
 #define class class_t
 #define namespace namespace_t
-#define delete delete_t
+#define delete delete_
 #define static
 
 extern "C" {
@@ -54,14 +54,12 @@ int main(int argc, char *argv[])
       return 0;
    }
 
-   ChamServer server;
-
-   server.newSocket();
+   server->newSocket();
    
-   if (!wlr_backend_start(server.backend))
+   if (!wlr_backend_start(server->backend))
    {
-      wlr_backend_destroy(server.backend);
-      wl_display_destroy(server.wlDisplay);
+      wlr_backend_destroy(server->backend);
+      wl_display_destroy(server->wlDisplay);
       return 1;
    }
 
@@ -79,11 +77,14 @@ int main(int argc, char *argv[])
    wlr_idle_create(server.wlDisplay);
    */
 
-   wl_display_run(server.wlDisplay);
+   wl_display_run(server->wlDisplay);
 
-   wl_display_destroy_clients(server.wlDisplay);
-   wl_display_destroy(server.wlDisplay);
+   wl_display_destroy_clients(server->wlDisplay);
+   wl_display_destroy(server->wlDisplay);
 
    return 0;
 }
+
+
+
 

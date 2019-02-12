@@ -1,26 +1,21 @@
 #pragma once
-#include <wayland-server.h>
-               
-#define class class_t
-#define namespace namespace_t
-#define delete delete_t
-#define static
 
 extern "C" {
 #include <wlr/backend.h>
-#include <wlr/render/wlr_renderer.h>
-#include <wlr/types/wlr_compositor.h>
+#include <wlr/types/wlr_data_device.h>
 #include <wlr/types/wlr_linux_dmabuf_v1.h>
 #include <wlr/types/wlr_xdg_shell_v6.h>
-}
-
-#undef class
-#undef namespace
+   
+#define static
+#include <wlr/types/wlr_compositor.h>
+#include <wlr/render/wlr_renderer.h>
 #undef static
-#undef delete
+}
 
 #include "view.hpp"
 #include "cursor.hpp"
+#include "keyboard.hpp"
+#include "seat.hpp"
 
 class ChamServer
 {
@@ -37,12 +32,14 @@ public:
    wl_listener newXdgSurface;
    wl_list views;
 
+   ChamSeat seat;
    ChamCursor cursor;
+   ChamKeyboard keyboard;
 
-
-
-   wl_data_device_manager *dataDeviceMgr; 
+   wl_listener newInput;
    
+   wlr_data_device_manager *dataDeviceMgr; 
+
    wlr_output_layout *outputLayout;
    wl_listener newOutput;
    wl_list outputs;
@@ -57,15 +54,4 @@ public:
    static void focusView(ChamView *view, wlr_surface *surface);
 };
 
-
-
-
-
-
-
-
-
-
-
-
-
+extern ChamServer *server;

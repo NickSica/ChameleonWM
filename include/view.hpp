@@ -11,7 +11,6 @@ class ChamView
 {
 public:
    wl_list link;
-   ChamServer *server;
    wlr_xdg_surface_v6 *xdgSurface;
    wl_listener destroy;
 
