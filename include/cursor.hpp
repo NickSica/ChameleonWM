@@ -6,6 +6,7 @@
 class ChamCursor
 {
 private:
+   wlr_cursor *cursor;
    wlr_xcursor_manager *cursorMgr;
 
    enum enumCursorMode
@@ -26,13 +27,11 @@ private:
    wl_list link;
    wlr_input_device *device;
 
+public:
+   ChamCursor();
    void processCursorMotion(wlr_event_pointer_motion *event);
    void processCursorMove(wlr_event_pointer_motion *event);
    void processCursorResize(wlr_event_pointer_motion *event);
-   
-public:
-   wlr_cursor *cursor;
 
-   ChamCursor();
-   
+   operator wlr_cursor*() { return cursor; }
 };

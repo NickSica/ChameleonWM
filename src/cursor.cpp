@@ -6,10 +6,12 @@
 
 #include "server.hpp"
 
+extern ChamServer *server;
+
 static void cursorMotionNotify(wl_listener *, void *data)
 {
    wlr_event_pointer_motion *event = static_cast<wlr_event_pointer_motion *>(data);
-
+   
    server->cursor.processCursorMotion(event);
 }
 
@@ -30,13 +32,13 @@ ChamCursor::ChamCursor()
    wlr_xcursor_manager_load(cursorMgr, 1);
    
    cursorListeners.cursorMotion.notify = cursorMotionNotify;
-   wl_signal_add(cursor->events.motion, &cursorListeners.cursorMotion);
+   wl_signal_add(&cursor->events.motion, &cursorListeners.cursorMotion);
 
    cursorListeners.cursorMotionAbsolute.notify = cursorMotionAbsoluteNotify;
-   wl_signal_add(cursor->events.motion_absolute, &cursorListeners.cursorMotionAbsolute);
+   wl_signal_add(&cursor->events.motion_absolute, &cursorListeners.cursorMotionAbsolute);
    
    cursorListeners.cursorAxis.notify = cursorAxisNotify;
-   wl_signal_add(cursor->events.axis, &cursorListeners.cursorAxis);
+   wl_signal_add(&cursor->events.axis, &cursorListeners.cursorAxis);
 }
 
 void ChamCursor::processCursorMotion(wlr_event_pointer_motion *event)
@@ -61,3 +63,5 @@ void ChamCursor::processCursorMove(wlr_event_pointer_motion *event)
 }
 
 void ChamCursor::processCursorResize(wlr_event_pointer_motion *event) {}
+
+

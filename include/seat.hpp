@@ -17,5 +17,6 @@ private:
    uint32_t resizeEdges;
 public:
    ChamSeat();
-   wlr_seat *getSeat() { return seat; };
+
+   operator wlr_seat*() { return seat; }
 };

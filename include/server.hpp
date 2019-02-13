@@ -35,6 +35,7 @@ public:
    ChamSeat seat;
    ChamCursor cursor;
    ChamKeyboard keyboard;
+   ChamView grabbedView;
 
    wl_listener newInput;
    
@@ -46,12 +47,10 @@ public:
 
    ChamServer();
    int newSocket();
-   static void newOutputNotify(wl_listener *listener, void *data);
-   static void newXdgSurfaceNotify(wl_listener *listener, void *data);
-   static void newInputNotify(wl_listener *listener, void *data);
-   static void requestCursorNotify(wl_listener *listener, void *data);
-   static void newKeyboard(wlr_input_device *device);
-   static void focusView(ChamView *view, wlr_surface *surface);
+   void processNewOutput(wl_listener *listener, void *data);
+   void processNewXdgSurface(wl_listener *listener, void *data);
+   void processNewInput(wl_listener *listener, void *data);
+   void requestCursor(wl_listener *listener, void *data);
+   void processNewKeyboard(wlr_input_device *device);
+   void focusView(ChamView *view, wlr_surface *surface);
 };
-
-extern ChamServer *server;

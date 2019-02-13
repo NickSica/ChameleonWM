@@ -9,6 +9,26 @@ extern "C" {
 #include <wlr/types/wlr_xdg_shell_v6.h>
 }
 
+static void newOutputNotify(wl_listener *listener, void *data)
+{
+   
+}
+
+static void newXdgSurfaceNotify(wl_listener *listener, void *data)
+{
+   
+}
+
+static void newInputNotify(wl_listener *listener, void *data)
+{
+
+}
+
+static void requestCursorNotify(wl_listener *listener, void *data)
+{
+   
+}
+
 ChamServer::ChamServer()
 {
    wlDisplay = wl_display_create();
@@ -29,7 +49,7 @@ ChamServer::ChamServer()
    newXdgSurface.notify = newXdgSurfaceNotify;
    wl_signal_add(&xdgShell->events.new_surface, &newXdgSurface);
 
-   wlr_cursor_attach_output_layout(cursor.cursor, outputLayout);
+   wlr_cursor_attach_output_layout((wlr_cursor*) cursor, outputLayout);
 }
 
 int ChamServer::newSocket()
@@ -43,28 +63,7 @@ int ChamServer::newSocket()
    printf("Running compositor on wayland display '%s'\n", socket);
    setenv("WAYLAND_DISPLAY", socket, true);
 
-n   return 0;
-}
-
-void ChamServer::newOutputNotify(wl_listener *listener, void *data)
-{
-   ChamServer *server = wl_container_of(listener, server, new_output);
-   
-}
-
-void ChamServer::newXdgSurfaceNotify(wl_listener *listener, void *data)
-{
-   
-}
-
-void ChamServer::newInputNotify(wl_listener *listener, void *data)
-{
-
-}
-
-void ChamServer::requestCursorNotify(wl_listener *listener, void *data)
-{
-   
+   return 0;
 }
 
 void ChamServer::focusView(ChamView *targetView, wlr_surface *surface)
@@ -73,7 +72,7 @@ void ChamServer::focusView(ChamView *targetView, wlr_surface *surface)
    {
       return;
    }
-   wlr_surface *prevSurface = seat->keyboard_state.focused_surface;
+   wlr_surface *prevSurface = ((wlr_seat *)seat)->keyboard_state.focused_surface;
 
    if(prevSurface == surface)
    {
@@ -83,15 +82,17 @@ void ChamServer::focusView(ChamView *targetView, wlr_surface *surface)
    if(prevSurface)
    {
       wlr_xdg_surface_v6 *previous =
-	   wlr_xdg_surface_v6_from_wlr_surface(seat->keyboard_state.focused_surface);
+	 wlr_xdg_surface_v6_from_wlr_surface(((wlr_seat *)seat)->keyboard_state.focused_surface);
       wlr_xdg_toplevel_v6_set_activated(previous, false);
    }
 
-   wlr_keyboard *keyboard = wlr_seat_get_keyboard(seat.seat);
-   wl_list_remove(targetView->link);
-   wl_list_insert(&server->views, targetView->link);
-   wlr_xdg_toplevel_set_activated(targetView->xdgSurface, true);
+   wlr_keyboard *keyboard = wlr_seat_get_keyboard(seat);
+   wl_list_remove(&targetView->link);
+   wl_list_insert(&views, &targetView->link);
+   wlr_xdg_toplevel_v6_set_activated(targetView->xdgSurface, true);
    wlr_seat_keyboard_notify_enter(seat, targetView->xdgSurface->surface,
 				  keyboard->keycodes, keyboard->num_keycodes,
 				  &keyboard->modifiers);
 }
+
+ChamServer *server;

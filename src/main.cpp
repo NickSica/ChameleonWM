@@ -9,7 +9,6 @@
 
 #include "server.hpp"
 
-
 /* Here so I can easily snip it- will remove later
 #define class class_t
 #define namespace namespace_t
@@ -31,7 +30,7 @@ extern "C" {
 }
 
 int main(int argc, char *argv[])
-{
+{   
    wlr_log_init(WLR_DEBUG, NULL);
    char *startup_cmd = NULL;
 
@@ -54,6 +53,7 @@ int main(int argc, char *argv[])
       return 0;
    }
 
+   extern ChamServer *server;
    server->newSocket();
    
    if (!wlr_backend_start(server->backend))

@@ -1,6 +1,9 @@
 #include "keyboard.hpp"
 
 #include "server.hpp"
+#include "view.hpp"
+
+extern ChamServer *server;
 
 static void handleModifiersNotify(wl_listener *, void *data)
 {
@@ -19,10 +22,10 @@ bool ChamKeyboard::handleKeybinding(xkb_keysym_t sym)
 	 {
 	    break;
 	 }
-	 ChamView currView = wl_container_of(server->views.next, currView, link);
-	 ChamView nextView = wl_container_of(currView->link.next, nextView, link);
-	 focusView(nextView, nextView->xdgSurface->surface);
-	 wl_list_remove(&currView->link);
+	 ChamView currView = wl_container_of(server->views.next, &currView, link);
+	 ChamView nextView = wl_container_of(currView->link.next, &nextView, link);
+	 server->focusView(nextView, nextView->xdgSurface->surface);
+	 wl_list_remove(&currView.link);
 	 wl_list_insert(server->views.prev, &currView->link);
 	 break;
       default:
@@ -52,7 +55,7 @@ void ChamKeyboard::handleKey(wl_listener *listener, void *data)
 
    if(!handled)
    {
-      wlr_seat_set_keyboard(seat, keyboard->device);
+      wlr_seat_set_keyboard(seat, device);
       wlr_seat_keyboard_notify_key(seat, event->time_msec, event->keycode, event->state);
    }
 }
